@@ -1,0 +1,20 @@
+@import "../../styles/base/_all";
+
+ce-app-master-detail {
+    display:block;
+	@extend .view-card;
+
+    ce-app-edit-embed,
+    ce-app-list-embed {
+        float:left;
+        display:inline-block;
+        position:relative;
+        width:50%;
+    }
+}
+
+ce-app-master-detail::after {
+    clear:both;
+    display:block;
+    content:" ";
+}
