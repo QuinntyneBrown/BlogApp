@@ -1,5 +1,4 @@
 import { fetch } from "../utilities";
-
 import { environment } from "../environment";
 
 export class ApiService {
@@ -12,18 +11,17 @@ export class ApiService {
         return this._instance;
     }
 
-    public getAddress(options: {
-        longitude: number,
-        latitude: number
-    }): Promise<string> {         
-        return this._fetch({ url: `/api/geolocation/getAddress?longitude=${options.longitude}&latitude=${options.latitude}`, authRequired: false }).then((results: string) => {
-            return (JSON.parse(results) as { address: string }).address as string;
-        });
-    }   
-
-    public getClosetEvents(options: { address: string }): Promise<Array<any>> {
-        return this._fetch({ url: `/api/event/getClosest?address=${options.address}`, authRequired: false }).then((results: string) => {
-            return (JSON.parse(results) as { events: Array<any> }).events as Array<any>;
+    public getArticles(options: { skip?: number, take?: number } = {}): Promise<Array<any>> {         
+        return this._fetch({ url: `${environment.articleBaseUrl}api/article/get?skip=${options.skip}&take=${options.take}` }).then((results: string) => {
+            return (JSON.parse(results) as { articles: Array<any> }).articles as Array<any>;
         });
     }  
+
+    public getArticleBySlug(options: {
+        slug: string
+    }): Promise<string> {
+        return this._fetch({ url: `${environment.articleBaseUrl}/api/article/getArticleBySlug?slug=${options.slug}` }).then((results: string) => {
+            return (JSON.parse(results) as { article: any }).article as any;
+        });
+    }    
 }

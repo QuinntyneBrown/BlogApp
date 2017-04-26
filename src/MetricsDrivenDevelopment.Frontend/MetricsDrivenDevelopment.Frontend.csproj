@@ -6,8 +6,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FC25A15A-6CCB-44BA-99E1-C8C6DCFBFE40}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -22,8 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -195,9 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="azureBlobStorageConfiguration.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
+    <Content Include="dist\app.js" />
     <Content Include="index.html" />
     <Content Include="lib\moment.min.js" />
     <Content Include="lib\native-shim.js" />
@@ -213,17 +209,11 @@
     <Content Include="src\app\app.component.scss">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\components\near-by-event.component.html">
-      <DependentUpon>near-by-event.component.ts</DependentUpon>
+    <Content Include="src\app\components\article.component.html">
+      <DependentUpon>article.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\components\near-by-event.component.scss">
-      <DependentUpon>near-by-event.component.ts</DependentUpon>
-    </Content>
-    <Content Include="src\app\components\near-by-events.component.html">
-      <DependentUpon>near-by-events.component.ts</DependentUpon>
-    </Content>
-    <Content Include="src\app\components\near-by-events.component.scss">
-      <DependentUpon>near-by-events.component.ts</DependentUpon>
+    <Content Include="src\app\components\article.component.scss">
+      <DependentUpon>article.component.ts</DependentUpon>
     </Content>
     <Content Include="src\app\errors\error.component.html">
       <DependentUpon>error.component.ts</DependentUpon>
@@ -341,8 +331,7 @@
           <IISUrl>http://localhost:64410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -448,20 +437,20 @@
     <TypeScriptCompile Include="src\app\app-router-outlet.component.ts" />
     <TypeScriptCompile Include="src\polyfills.ts" />
     <TypeScriptCompile Include="src\app\pages\splash.component.ts" />
-    <TypeScriptCompile Include="src\app\models\event.model.ts" />
     <TypeScriptCompile Include="src\app\components\index.ts" />
-    <TypeScriptCompile Include="src\app\models\event-location.model.ts" />
-    <TypeScriptCompile Include="src\app\components\near-by-event.component.ts" />
-    <TypeScriptCompile Include="src\app\components\near-by-events.component.ts" />
+    <TypeScriptCompile Include="src\app\models\article.model.ts" />
+    <TypeScriptCompile Include="src\app\components\article.component.ts" />
+    <TypeScriptCompile Include="src\app\models\tag.model.ts" />
+    <TypeScriptCompile Include="src\app\models\category.model.ts" />
+    <TypeScriptCompile Include="src\app\models\author.model.ts" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="dist\app.js.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MetricsDrivenDevelopment\MetricsDrivenDevelopment.csproj">
-      <Project>{a8711bc3-f343-4e44-b045-349942559795}</Project>
-      <Name>MetricsDrivenDevelopment</Name>
-    </ProjectReference>
+    <None Include="Properties\PublishProfiles\metricsdrivendevelopment - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\metricsdrivendevelopment - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
