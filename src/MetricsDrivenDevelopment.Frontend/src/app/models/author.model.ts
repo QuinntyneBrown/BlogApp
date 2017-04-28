@@ -2,14 +2,18 @@ export class Author {
 
     public id:any;
     
-    public name:string;
+    public firstname: string;
 
-    public static fromJSON(data: { name:string }): Author {
+    public lastname: string;
+
+    public static fromJSON(data: any): Author {
 
         let author = new Author();
 
-        author.name = data.name;
+        author.firstname = data.firstname;
 
+        author.lastname = data.lastname;
+        
         return author;
     }
 }

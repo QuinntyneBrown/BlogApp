@@ -24,6 +24,11 @@ export class SplashComponent extends HTMLElement {
 
     private async _bind() {
         this._articles = await this._apiService.getArticles();
+        for (let i = 0; i < this._articles.length; i++) {
+            let element = document.createElement("ce-article") as any;
+            element.article = this._articles[i];
+            this.appendChild(element);
+        }
     }
 
     private _setEventListeners() {

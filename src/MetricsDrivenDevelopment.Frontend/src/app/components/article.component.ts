@@ -8,39 +8,27 @@ export class ArticleComponent extends HTMLElement {
         super();
     }
 
-    private _article: Article;
-
-    static get observedAttributes () {
-        return [
-            "article"
-        ];
-    }
-
+    public article: Article;
+    
     connectedCallback() {
         this.innerHTML = `<style>${styles}</style> ${template}`;
         this._bind();
-        this._setEventListeners();
     }
 
     private async _bind() {
+        this.titleElement.textContent = this.article.title;
 
+        this.htmlContentElement.innerHTML = this.article.htmlContent;
+
+        this.contributorElement.innerHTML = `${this.article.author.firstname} ${this.article.author.lastname}`;
     }
 
-    private _setEventListeners() {
+    public get titleElement(): HTMLElement { return this.querySelector(".article-title") as HTMLElement; }
 
-    }
+    public get htmlContentElement(): HTMLElement { return this.querySelector(".article-html-content") as HTMLElement; }
 
-    disconnectedCallback() {
+    public get contributorElement(): HTMLElement { return this.querySelector(".article-contributor") as HTMLElement; }
 
-    }
-
-    attributeChangedCallback (name, oldValue, newValue) {
-        switch (name) {
-            case "article":
-                this._article = JSON.parse(newValue) as Article;
-                break;
-        }
-    }
 }
 
 customElements.define(`ce-article`,ArticleComponent);

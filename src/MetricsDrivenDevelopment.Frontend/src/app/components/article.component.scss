@@ -2,4 +2,27 @@
 
 ce-article {
     display:block;
+    line-height:1.65em;
+
+    .article-heading {
+        margin-bottom:40px;
+    }
+
+    h2 {
+        letter-spacing:0.025em;
+        font-size:2.75em;
+        line-height:1.3em;
+        margin-bottom:10px;
+    }
+
+    h3 {
+        font-size:1em;
+        line-height:1.3em;
+    }
+
+    .article-contributor {
+        text-transform:uppercase;
+        color: rgb(177,177,177);
+        font-size:0.85em;
+    }
 }
