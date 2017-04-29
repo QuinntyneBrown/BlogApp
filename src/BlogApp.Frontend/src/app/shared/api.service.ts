@@ -20,7 +20,7 @@ export class ApiService {
     public getArticleBySlug(options: {
         slug: string
     }): Promise<string> {
-        return this._fetch({ url: `${environment.articleBaseUrl}/api/article/getArticleBySlug?slug=${options.slug}` }).then((results: string) => {
+        return this._fetch({ url: `${environment.articleBaseUrl}/api/article/getBySlug?slug=${options.slug}` }).then((results: string) => {
             return (JSON.parse(results) as { article: any }).article as any;
         });
     }    

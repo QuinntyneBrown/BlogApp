@@ -9,42 +9,20 @@ export class SplashComponent extends HTMLElement {
     ) {
         super();
     }
-
-    static get observedAttributes () {
-        return [];
-    }
-
+    
     private _articles: Array<any> = [];
 
     connectedCallback() {
         this.innerHTML = `<style>${styles}</style> ${template}`;
         this._bind();
-        this._setEventListeners();
     }
 
     private async _bind() {
         this._articles = await this._apiService.getArticles();
-        for (let i = 0; i < this._articles.length; i++) {
-            let element = document.createElement("ce-article") as any;
-            element.article = this._articles[i];
-            this.appendChild(element);
-        }
+        this.articlesElement.articles = this._articles;
     }
-
-    private _setEventListeners() {
-
-    }
-
-    disconnectedCallback() {
-
-    }
-
-    attributeChangedCallback (name, oldValue, newValue) {
-        switch (name) {
-            default:
-                break;
-        }
-    }
+    
+    private get articlesElement() { return this.querySelector("ce-articles") as any; }
 }
 
 customElements.define(`ce-splash`,SplashComponent);

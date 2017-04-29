@@ -19,6 +19,11 @@ ce-article {
         font-size:1em;
         line-height:1.3em;
     }
+
+    .article-title {
+        cursor:pointer;
+    }
+
     .article-byline {
         color: rgb(177,177,177);
         font-size:0.85em;
