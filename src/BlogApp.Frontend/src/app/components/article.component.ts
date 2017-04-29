@@ -9,7 +9,7 @@ export class ArticleComponent extends HTMLElement {
         private _router: Router = Router.Instance
     ) {
         super();
-        this.onTitleClick = this.onTitleClick.bind(this);
+        this.navigateToArticlePage = this.navigateToArticlePage.bind(this);
     }
 
     private _article: Article;
@@ -18,7 +18,9 @@ export class ArticleComponent extends HTMLElement {
 
     public set article(value: Article) {
         this._article = value;
-        this._bind();
+
+        if(this.parentNode)
+            this._bind();
     }
     
     connectedCallback() {
@@ -28,19 +30,19 @@ export class ArticleComponent extends HTMLElement {
     }
 
     _setEventListeners() {
-        this.titleElement.addEventListener("click", this.onTitleClick);
+        this.titleElement.addEventListener("click", this.navigateToArticlePage);
     }
 
     disconnectedCallback() {
-        this.titleElement.removeEventListener("click", this.onTitleClick);
+        this.titleElement.removeEventListener("click", this.navigateToArticlePage);
     }
-    private onTitleClick() {
-        this._router.navigate(["article", this.article.slug]);
+    private navigateToArticlePage() {
+        this._router.navigate(["articles", this.article.slug]);
     }
 
     private async _bind() {
         if (this.article) {
-            this.titleElement.textContent = this.article.title;
+            this.titleElement.innerHTML = this.article.title;
 
             this.htmlContentElement.innerHTML = this.article.htmlContent;
 

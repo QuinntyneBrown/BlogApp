@@ -4,6 +4,8 @@ export class Personality {
     
     public name: string;
 
+    public imageUrl: string;
+
     public twitter: string;
 
     public github: string;
@@ -17,6 +19,8 @@ export class Personality {
         let personality = new Personality();
 
         personality.name = data.name;
+
+        personality.imageUrl = data.imageUrl;
 
         personality.bio = data.bio;
 

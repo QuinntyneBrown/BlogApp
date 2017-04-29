@@ -43,9 +43,9 @@ namespace BlogApp.Frontend
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Article",                                              
-                "Article/{slug}",                           
-                new { controller = "Article", action = "GetBySlug" }
+                "Articles",                                              
+                "articles/{slug}",                           
+                new { controller = "Articles", action = "GetBySlug" }
             );
 
             routes.MapRoute(

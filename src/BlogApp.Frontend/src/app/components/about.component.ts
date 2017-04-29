@@ -1,8 +1,12 @@
+import { ApiService } from "../shared";
+
 const template = require("./about.component.html");
 const styles = require("./about.component.scss");
 
 export class AboutComponent extends HTMLElement {
-    constructor() {
+    constructor(
+        private _apiService: ApiService = ApiService.Instance
+    ) {
         super();
     }
 
@@ -17,7 +21,8 @@ export class AboutComponent extends HTMLElement {
     }
 
     private async _bind() {
-        this.imageElement.src = "https://quinntynebrown.blob.core.windows.net/4204672e-f64a-4edb-8e5c-01c79b7bcb70/headshot_square.png"
+        var personality = await this._apiService.getPersonalityById({ id: 1 });        
+        this.imageElement.src = personality.imageUrl;
     }
 
     private _setEventListeners() {

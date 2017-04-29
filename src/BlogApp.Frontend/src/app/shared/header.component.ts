@@ -1,38 +1,33 @@
+import { Router } from "../router";
+
 const template = require("./header.component.html");
 const styles = require("./header.component.scss");
 
 export class HeaderComponent extends HTMLElement {
-    constructor() {
+    constructor(
+        private _router: Router = Router.Instance
+    ) {
         super();
+        this.navigateToDefaultUrl = this.navigateToDefaultUrl.bind(this);
     }
 
-    static get observedAttributes () {
-        return [];
-    }
+    public get titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
 
     connectedCallback() {
         this.innerHTML = `<style>${styles}</style> ${template}`;
-        this._bind();
         this._setEventListeners();
     }
 
-    private async _bind() {
-
+    public navigateToDefaultUrl() {
+        this._router.navigate([""]);
     }
-
+    
     private _setEventListeners() {
-
+        this.titleElement.addEventListener("click", this.navigateToDefaultUrl);
     }
 
     disconnectedCallback() {
-
-    }
-
-    attributeChangedCallback (name, oldValue, newValue) {
-        switch (name) {
-            default:
-                break;
-        }
+        this.titleElement.removeEventListener("click", this.navigateToDefaultUrl);
     }
 }
 

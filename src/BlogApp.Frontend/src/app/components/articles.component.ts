@@ -29,6 +29,16 @@ export class ArticlesComponent extends PaginatedComponent<Article> {
             el.article = this.pagedList.data[i];
             this._containerElement.appendChild(el);
         }
+
+        if (!this.hasPrevious()) {
+            var previousElement = this.querySelector(".previous") as HTMLElement;
+            previousElement.style.display = "none";
+        }
+
+        if (!this.hasNext()) {
+            var nextElement = this.querySelector(".next") as HTMLElement;
+            nextElement.style.display = "none";
+        }
     }
 
     private get _currentPageElement(): HTMLElement { return this.querySelector(".current-page") as HTMLElement; }

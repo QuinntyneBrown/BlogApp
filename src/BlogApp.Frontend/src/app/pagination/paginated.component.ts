@@ -41,6 +41,14 @@ export abstract class PaginatedComponent<T> extends HTMLElement {
         this.render();
     }
 
+    public hasNext(): boolean {
+        return this.pageNumber != this.pagedList.totalPages;
+    }
+
+    public hasPrevious(): boolean {
+            return this.pageNumber != 1;
+    }
+
     public onPrevious(e: Event) {
         e.stopPropagation();
 
