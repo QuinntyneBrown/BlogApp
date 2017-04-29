@@ -1,2 +1,2 @@
 # BlogApp
-BlogApp using ASP.NET Web API 2, Custom Elements v1, MediatR and TypeScript 2.x
+BlogApp using ASP.NET MVC 5, Custom Elements v1 and TypeScript 2.x
