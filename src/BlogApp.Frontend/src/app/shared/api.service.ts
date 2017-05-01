@@ -24,7 +24,15 @@ export class ApiService {
         return this._fetch({ url: `${environment.articleBaseUrl}api/article/getBySlug?slug=${options.slug}` }).then((results: string) => {
             return (JSON.parse(results) as { article: any }).article as any;
         });
-    }    
+    }   
+
+    public getPreviewArticleBySlug(options: {
+        slug: string
+    }): Promise<string> {
+        return this._fetch({ url: `${environment.articleBaseUrl}api/article/getPreviewBySlug?slug=${options.slug}` }).then((results: string) => {
+            return (JSON.parse(results) as { article: any }).article as any;
+        });
+    }         
 
     public getPersonalityById(options: { id: any }): Promise<Personality> {
         return this._fetch({ url: `${environment.personalityBaseUrl}api/personality/getById?id=${options.id}` }).then((results: string) => {

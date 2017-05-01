@@ -232,6 +232,12 @@
     <Content Include="src\app\pages\article-page.component.scss">
       <DependentUpon>article-page.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\pages\article-preview-page.component.html">
+      <DependentUpon>article-preview-page.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\pages\article-preview-page.component.scss">
+      <DependentUpon>article-preview-page.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\pages\splash.component.html">
       <DependentUpon>splash.component.ts</DependentUpon>
     </Content>
@@ -470,6 +476,7 @@
     <TypeScriptCompile Include="src\app\models\personality.model.ts" />
     <TypeScriptCompile Include="src\app\components\articles.component.ts" />
     <TypeScriptCompile Include="src\app\pages\article-page.component.ts" />
+    <TypeScriptCompile Include="src\app\pages\article-preview-page.component.ts" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

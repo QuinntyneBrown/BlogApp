@@ -10,6 +10,7 @@ export class AppRouterOutletComponent extends RouterOutlet {
             { path: "/", name: "splash" },
             { path: "/articles", name: "splash" },
             { path: "/articles/:slug", name: "article-page" },
+            { path: "/preview/:slug", name: "article-page" },
             { path: "/error", name: "error" }            
         ] as any);
         

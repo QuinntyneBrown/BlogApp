@@ -49,6 +49,12 @@ namespace BlogApp.Frontend
             );
 
             routes.MapRoute(
+                "Articles",
+                "articles/preview/{slug}",
+                new { controller = "Articles", action = "GetPreivewBySlug" }
+            );
+
+            routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = "" }
